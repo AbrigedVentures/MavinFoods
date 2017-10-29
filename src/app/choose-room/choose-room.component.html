@@ -1,0 +1,90 @@
+
+<br/>
+<md-tab-group class="demo-tab-group">
+  <md-tab label="Allocate Room">
+    <div class="demo-tab-content">
+      
+      <div class="container">
+        <br>
+        <h1>Choose Room</h1>
+        <br/>
+        <h3>1st Floor</h3>
+        <hr/>
+        <br/>
+        <div class="row">
+         
+            <button *ngFor="let room of firstfloor" id="room.Rid" onclick="magic(room.Rid)" md-raised-button [ngClass]="room.Allocated==true?'col col-lg-3 rooms roomfilled ':'col col-lg-3 rooms roomempty '"><span class="fa fa-bed"  ></span> {{room.Rid}}</button>
+          
+        </div>
+
+         <br/>
+        <h3>2nd Floor</h3>
+        <hr/>
+        <br/>
+        <div class="row">
+         
+            <button *ngFor="let room of secondfloor" md-raised-button [ngClass]="room.Allocated==true?'col col-lg-3 rooms roomfilled ':'col col-lg-3 rooms roomempty '"><span class="fa fa-bed" ></span> {{room.Rid}}</button>
+          
+        </div>
+         
+      </div>
+
+    </div>
+    <br/>
+  </md-tab>
+  <md-tab label="Campus Mind's List">
+    
+    <div class="demo-tab-content container md-elevation-z8">
+     <br/>
+   
+  <md-table #table [dataSource]="dataSource">
+
+    
+    <ng-container mdColumnDef="MId">
+      <md-header-cell *mdHeaderCellDef> MId </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.mid}} </md-cell>
+    </ng-container>
+
+    
+    <ng-container mdColumnDef="Name">
+      <md-header-cell *mdHeaderCellDef> Name </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.Name}} </md-cell>
+    </ng-container>
+
+    <ng-container mdColumnDef="Gender">
+      <md-header-cell *mdHeaderCellDef>Gender</md-header-cell>
+      <md-cell *mdCellDef="let element">{{element.Gender}}</md-cell>
+    </ng-container>
+
+    <ng-container mdColumnDef="Track">
+      <md-header-cell *mdHeaderCellDef> Track </md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.Track}} </md-cell>
+    </ng-container>
+
+   
+    <ng-container mdColumnDef="Room">
+      <md-header-cell *mdHeaderCellDef>Room</md-header-cell>
+      <md-cell *mdCellDef="let element"> {{element.Rid}} </md-cell>
+    </ng-container>
+
+    <md-header-row *mdHeaderRowDef="tableColumns"></md-header-row>
+    <md-row *mdRowDef="let row; columns: tableColumns;"></md-row>
+  </md-table>
+
+   <md-paginator #paginator
+                [length]="datas.length"
+                [pageIndex]="0"
+                [pageSize]="10"
+                [pageSizeOptions]="[2,5,10]">
+  </md-paginator>
+  
+
+
+  </div>
+ 
+  
+  </md-tab>
+ 
+</md-tab-group>
+
+

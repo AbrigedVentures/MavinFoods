@@ -1,0 +1,26 @@
+
+$filled:red;
+$empty:green;
+$textcolor:white;
+.rooms
+{
+    margin-right: 2%;
+}
+.roomfilled
+{
+    background-color: $filled;
+    color:$textcolor;
+
+}
+.roomempty
+{
+
+     
+    background-color: $empty;
+    color:$textcolor;
+}
+
+
+
+
+
